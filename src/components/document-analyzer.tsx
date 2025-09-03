@@ -52,6 +52,26 @@ const placeholderText = `Title: The Impact of Artificial Intelligence on Academi
 Abstract: This paper explores the transformative impact of artificial intelligence (AI) on academic research methodologies. It examines how AI tools and techniques are reshaping data collection, analysis, and interpretation across various disciplines.
 
 Introduction: The advent of AI has introduced a paradigm shift in the academic world. This section provides an overview of the growing importance of AI in research and outlines the structure of this paper.
+
+Literature Review: This section reviews existing studies and relevant theories on AI in academic research, identifying gaps in the current research that this paper aims to address.
+
+Methodology: This study employs a mixed-methods approach, combining qualitative analysis of existing literature with quantitative analysis of survey data collected from researchers across different fields.
+
+Analysis and Findings: The analysis reveals that AI tools significantly accelerate the research process. Key findings indicate a 40% reduction in data analysis time and a 25% increase in citation accuracy.
+
+Discussion: The findings are discussed in the context of existing theories, highlighting the implications for academic research practices. Limitations of the study, such as sample size, are also addressed.
+
+Conclusion: This paper concludes that AI is a powerful tool for academic research, offering significant benefits in efficiency and accuracy. The main insights derived from the research are summarized.
+
+Recommendations: Based on the findings, we recommend the integration of AI literacy programs in academic curricula and suggest directions for future research, including the long-term impact of AI on research integrity.
+
+References:
+1. Turing, A. M. (1950). Computing Machinery and Intelligence. Mind, 59(236), 433-460.
+2. Mitchell, T. M. (1997). Machine Learning. McGraw-Hill.
+
+Appendices:
+Appendix A: Survey Questionnaire
+[Content of the survey questionnaire]
 `;
 
 export function DocumentAnalyzer() {
