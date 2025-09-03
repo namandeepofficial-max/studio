@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'ResearchHub',
+  title: 'EVIDECIA FLOW',
   description: 'Streamline Your Research Workflow',
 };
 
@@ -30,3 +30,5 @@ export default function RootLayout({
     </html>
   );
 }
+
+    

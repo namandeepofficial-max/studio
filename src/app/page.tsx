@@ -84,7 +84,7 @@ export default function Home() {
       {/* Header */}
       <header className="bg-white shadow-md">
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-              <div className="text-2xl font-bold text-blue-600">ResearchHub</div>
+              <div className="text-2xl font-bold text-blue-600">EVIDECIA FLOW</div>
               <nav>
                   <a href="#features" className="mx-2 text-gray-600 hover:text-blue-600">Features</a>
                   <a href="#how-it-works" className="mx-2 text-gray-600 hover:text-blue-600">How It Works</a>
@@ -97,7 +97,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="bg-blue-600 text-white text-center py-20">
           <div className="container mx-auto px-6">
-              <h1 className="text-5xl font-bold mb-4">Streamline Your Research Workflow</h1>
+              <h1 className="text-5xl font-bold mb-4">EVIDECIA FLOW</h1>
               <p className="text-xl mb-8">Your one-stop solution for academic research, from literature review to publication.</p>
               <a href="#" className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200">Start for Free</a>
           </div>
@@ -199,7 +199,7 @@ export default function Home() {
           <div className="container mx-auto px-6">
               <div className="flex flex-wrap justify-between">
                   <div className="w-full md:w-1/3 mb-8">
-                      <h3 className="text-2xl font-bold mb-4">ResearchHub</h3>
+                      <h3 className="text-2xl font-bold mb-4">EVIDECIA FLOW</h3>
                       <p className="text-gray-400">Empowering researchers with the best tools and resources.</p>
                   </div>
                   <div className="w-full md:w-1/3 mb-8">
@@ -227,10 +227,12 @@ export default function Home() {
                   </div>
               </div>
               <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                  <p>© 2024 ResearchHub. All rights reserved.</p>
+                  <p>© 2024 EVIDECIA FLOW. All rights reserved.</p>
               </div>
           </div>
       </footer>
     </div>
   );
 }
+
+    
