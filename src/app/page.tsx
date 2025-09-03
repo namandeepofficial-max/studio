@@ -1,6 +1,7 @@
 "use client";
 import * as React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -27,9 +28,11 @@ export default function Home() {
             EVIDECIA FLOW
           </h1>
         </div>
-        <Button onClick={() => setShowAnalyzer(true)} variant="outline" className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
-          Get Started <ArrowRight className="ml-2 h-4 w-4" />
-        </Button>
+        <Link href="/signup" passHref>
+          <Button variant="outline" className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
+            Get Started <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </Link>
       </header>
 
       {/* Hero Section */}
