@@ -1,4 +1,3 @@
-
 "use client";
 import * as React from 'react';
 import Link from 'next/link';
@@ -48,6 +47,14 @@ export default function Home() {
         <Button onClick={() => setShowAnalyzer(true)} size="lg" className="bg-primary hover:bg-primary/90">
           Analyze Document Now <ArrowRight className="ml-2" />
         </Button>
+
+        <div className="mt-8 flex justify-center items-center space-x-4 md:space-x-8 text-gray-300">
+            <a href="#features" className="hover:text-primary transition-colors">Features</a>
+            <a href="#how-it-works" className="hover:text-primary transition-colors">Research Process</a>
+            <a href="#pricing" className="hover:text-primary transition-colors">Resources</a>
+            <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
+        </div>
+
         <div className="mt-12 w-full max-w-4xl mx-auto">
           <Image
             src="https://picsum.photos/1200/600"
