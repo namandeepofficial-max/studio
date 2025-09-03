@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResearchHub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-blue-600">ResearchHub</div>
+            <nav>
+                <a href="#features" class="mx-2 text-gray-600 hover:text-blue-600">Features</a>
+                <a href="#how-it-works" class="mx-2 text-gray-600 hover:text-blue-600">How It Works</a>
+                <a href="#contact" class="mx-2 text-gray-600 hover:text-blue-600">Contact</a>
+                <a href="#" class="mx-2 bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700">Get Started</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-blue-600 text-white text-center py-20">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl font-bold mb-4">Streamline Your Research Workflow</h1>
+            <p class="text-xl mb-8">Your one-stop solution for academic research, from literature review to publication.</p>
+            <a href="#" class="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200">Start for Free</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">Features</h2>
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                        <i class="fas fa-book-open text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Comprehensive Literature Review</h3>
+                        <p class="text-gray-600">Access a vast database of academic papers and articles.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                        <i class="fas fa-cogs text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Advanced Analysis Tools</h3>
+                        <p class="text-gray-600">Utilize our powerful tools for data analysis and visualization.</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/3 px-4 mb-8">
+                    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+                        <i class="fas fa-share-alt text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Collaborate Seamlessly</h3>
+                        <p class="text-gray-600">Work with your team in real-time on your research projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="bg-gray-200 py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12">How It Works</h2>
+            <div class="flex justify-center mb-8">
+                <button data-tab="title-page" class="tab-btn bg-blue-600 text-white px-6 py-3 rounded-l-full">Title Page</button>
+                <button data-tab="abstract" class="tab-btn bg-gray-200 text-gray-700 px-6 py-3">Abstract</button>
+                <button data-tab="introduction" class="tab-btn bg-gray-200 text-gray-700 px-6 py-3">Introduction</button>
+                <button data-tab="literature-review" class="tab-btn bg-gray-200 text-gray-700 px-6 py-3 rounded-r-full">Literature Review</button>
+            </div>
+            <div id="title-page" class="tab-content active bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">1. Title Page</h3>
+                <p>Includes the research title, author(s), affiliation(s), and date. This is the first impression of your work, so make it clear and concise.</p>
+            </div>
+            <div id="abstract" class="tab-content bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">2. Abstract</h3>
+                <p>A brief summary covering the purpose, methods, key findings, and conclusions. It should be a standalone section that gives a complete overview.</p>
+            </div>
+            <div id="introduction" class="tab-content bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">3. Introduction</h3>
+                <p>Presents background information, the problem statement, research objectives, and research questions or hypotheses. This sets the stage for your research.</p>
+            </div>
+            <div id="literature-review" class="tab-content bg-white p-8 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">4. Literature Review</h3>
+                <p>Reviews existing studies, relevant theories, and identifies gaps in the current research. This demonstrates your knowledge of the field.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-blue-600 text-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-center text-center">
+                <div class="w-full md:w-1/4 px-4 mb-8 stats-counter">
+                    <div class="bg-white text-blue-600 p-6 rounded-lg shadow-lg">
+                        <h4 class="text-4xl font-bold">1M+</h4>
+                        <p>Papers Indexed</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4 px-4 mb-8 stats-counter">
+                    <div class="bg-white text-blue-600 p-6 rounded-lg shadow-lg">
+                        <h4 class="text-4xl font-bold">50k+</h4>
+                        <p>Active Researchers</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4 px-4 mb-8 stats-counter">
+                    <div class="bg-white text-blue-600 p-6 rounded-lg shadow-lg">
+                        <h4 class="text-4xl font-bold">10k+</h4>
+                        <p>Universities</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/4 px-4 mb-8 stats-counter">
+                    <div class="bg-white text-blue-600 p-6 rounded-lg shadow-lg">
+                        <h4 class="text-4xl font-bold">98%</h4>
+                        <p>Satisfaction Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <footer id="contact" class="bg-gray-900 text-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-wrap justify-between">
+                <div class="w-full md:w-1/3 mb-8">
+                    <h3 class="text-2xl font-bold mb-4">ResearchHub</h3>
+                    <p class="text-gray-400">Empowering researchers with the best tools and resources.</p>
+                </div>
+                <div class="w-full md:w-1/3 mb-8">
+                    <h3 class="text-2xl font-bold mb-4">Quick Links</h3>
+                    <ul>
+                        <li class="mb-2"><a href="#features" class="text-gray-400 hover:text-white">Features</a></li>
+                        <li class="mb-2"><a href="#how-it-works" class="text-gray-400 hover:text-white">How It Works</a></li>
+                        <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li class="mb-2"><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="w-full md:w-1/3 mb-8">
+                    <h3 class="text-2xl font-bold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-blue-600">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>© 2024 ResearchHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('bg-blue-600', 'text-white');
+                        btn.classList.add('bg-gray-200', 'text-gray-700');
+                    });
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to clicked button and corresponding content
+                    button.classList.remove('bg-gray-200', 'text-gray-700');
+                    button.classList.add('bg-blue-600', 'text-white');
+                    
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Animate stats counters
+            const statsCounters = document.querySelectorAll('.stats-counter');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.transform = 'scale(1.05)';
+                        entry.target.style.boxShadow = '0 10px 25px -5px rgba(0, 0, 0, 0.1)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            statsCounters.forEach(counter => observer.observe(counter));
+        });
+    </script>
+</body>
+</html>
