@@ -24,12 +24,6 @@ export default function Home() {
         <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
           EVIDECIA FLOW
         </h1>
-        <nav className="hidden md:flex items-center space-x-6">
-          <a href="#features" className="hover:text-primary">Features</a>
-          <a href="#how-it-works" className="hover:text-primary">How It Works</a>
-          <a href="#pricing" className="hover:text-primary">Pricing</a>
-          <a href="#contact" className="hover:text-primary">Contact</a>
-        </nav>
         <Button onClick={() => setShowAnalyzer(true)} variant="outline" className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
           Get Started <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
