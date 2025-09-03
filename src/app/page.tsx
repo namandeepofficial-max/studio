@@ -29,12 +29,6 @@ export default function Home() {
             EVIDECIA FLOW
           </h1>
         </div>
-        <nav className="hidden md:flex items-center space-x-8 text-gray-300">
-            <a href="#features" className="hover:text-primary transition-colors">Features</a>
-            <a href="#how-it-works" className="hover:text-primary transition-colors">Research Process</a>
-            <a href="#pricing" className="hover:text-primary transition-colors">Resources</a>
-            <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
-        </nav>
         <Link href="/signup" passHref>
           <Button variant="outline" className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
             Get Started <ArrowRight className="ml-2 h-4 w-4" />
@@ -267,5 +261,7 @@ const HowItWorksStep = ({ step, title, description, icon, align }: { step: strin
     <div className="md:w-5/12"></div>
   </div>
 );
+
+    
 
     
