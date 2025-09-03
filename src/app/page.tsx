@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Facebook, Mail, Phone, MapPin } from 'lucide-react';
+import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Facebook, Mail, Phone, MapPin, GraduationCap } from 'lucide-react';
 import { DocumentAnalyzer } from '@/components/document-analyzer';
 import { useState } from 'react';
 
@@ -21,9 +21,12 @@ export default function Home() {
     <div className="bg-gray-900 text-white font-body">
       {/* Header */}
       <header className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-          EVIDECIA FLOW
-        </h1>
+        <div className="flex items-center gap-2">
+          <GraduationCap className="h-8 w-8 text-primary" />
+          <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+            EVIDECIA FLOW
+          </h1>
+        </div>
         <Button onClick={() => setShowAnalyzer(true)} variant="outline" className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
           Get Started <ArrowRight className="ml-2 h-4 w-4" />
         </Button>
