@@ -4,8 +4,11 @@ import * as React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { FileText, Search, Bot, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Facebook } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
+import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Facebook, Mail, Phone, MapPin } from 'lucide-react';
 import { DocumentAnalyzer } from '@/components/document-analyzer';
 import { useState } from 'react';
 
@@ -27,6 +30,7 @@ export default function Home() {
           <a href="#features" className="hover:text-primary">Features</a>
           <a href="#how-it-works" className="hover:text-primary">How It Works</a>
           <a href="#pricing" className="hover:text-primary">Pricing</a>
+          <a href="#contact" className="hover:text-primary">Contact</a>
         </nav>
         <Button onClick={() => setShowAnalyzer(true)} variant="outline" className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
           Get Started <ArrowRight className="ml-2 h-4 w-4" />
@@ -129,6 +133,76 @@ export default function Home() {
                 Start Analyzing for Free
               </Button>
           </div>
+      </section>
+
+      {/* Contact Us Section */}
+      <section id="contact" className="py-20 bg-gradient-to-r from-blue-900/80 via-purple-900/80 to-indigo-900/80">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left Column */}
+            <div className="space-y-6">
+              <h3 className="text-4xl font-bold">Start Your Research Journey</h3>
+              <p className="text-lg text-gray-300">
+                Get expert guidance and resources to make your research project successful.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-4">
+                  <Mail className="w-6 h-6 text-primary" />
+                  <span>support@researchhub.com</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <Phone className="w-6 h-6 text-primary" />
+                  <span>+1 (555) 123-4567</span>
+                </div>
+                <div className="flex items-center gap-4">
+                  <MapPin className="w-6 h-6 text-primary" />
+                  <span>123 Research Avenue, Academic City</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column */}
+            <div>
+              <Card className="bg-white/5 backdrop-blur-sm border-gray-700 text-card-foreground shadow-2xl rounded-xl">
+                <CardHeader>
+                  <CardTitle className="text-white text-2xl">Contact Us</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium text-gray-300">Name</label>
+                    <Input id="name" placeholder="Your Name" className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400" />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-gray-300">Email</label>
+                    <Input id="email" type="email" placeholder="your.email@example.com" className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400" />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="interest" className="text-sm font-medium text-gray-300">Research Interest</label>
+                    <Select>
+                      <SelectTrigger id="interest" className="bg-gray-800/50 border-gray-600 text-white">
+                        <SelectValue placeholder="Select your interest" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="ai-ml">Artificial Intelligence & Machine Learning</SelectItem>
+                        <SelectItem value="biotech">Biotechnology</SelectItem>
+                        <SelectItem value="humanities">Humanities</SelectItem>
+                        <SelectItem value="physics">Physics</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium text-gray-300">Message</label>
+                    <Textarea id="message" placeholder="Your message..." className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400" />
+                  </div>
+                  <Button className="w-full bg-primary hover:bg-primary/90">
+                    Send Message
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
       </section>
 
 
