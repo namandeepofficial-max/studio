@@ -52,11 +52,13 @@ export default function FeaturesPage() {
                     description="Our platform helps you refine your research work for accuracy and clarity. AI-powered checks ensure your document structure is sound and your sections are in the correct academic sequence, eliminating common errors before they happen."
                 />
             </Link>
-            <FeatureDetailCard
-                icon={<Zap />}
-                title="Optimize"
-                description="Streamline your workflow with tools that optimize productivity. Automatically extract document sections, download individual parts for focused editing, and navigate complex papers with ease. Spend less time formatting and more time researching."
-            />
+            <Link href="/features/optimize">
+              <FeatureDetailCard
+                  icon={<Zap />}
+                  title="Optimize"
+                  description="Streamline your workflow with tools that optimize productivity. Automatically extract document sections, download individual parts for focused editing, and navigate complex papers with ease. Spend less time formatting and more time researching."
+              />
+            </Link>
             <FeatureDetailCard
                 icon={<Sparkles />}
                 title="Innovate"
