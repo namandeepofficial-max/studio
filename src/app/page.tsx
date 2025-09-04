@@ -30,7 +30,7 @@ export default function Home() {
           </h1>
         </div>
         <nav className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-gray-400 hover:text-primary transition-colors">Features</a>
+            <Link href="/features" className="text-gray-400 hover:text-primary transition-colors">Features</Link>
             <a href="#how-it-works" className="text-gray-400 hover:text-primary transition-colors">Research Process</a>
             <a href="#pricing" className="text-gray-400 hover:text-primary transition-colors">Resources</a>
             <a href="#contact" className="text-gray-400 hover:text-primary transition-colors">Contact</a>
@@ -273,3 +273,6 @@ const HowItWorksStep = ({ step, title, description, icon, align }: { step: strin
     
 
 
+
+
+    
