@@ -1,4 +1,3 @@
-
 "use client";
 import * as React from 'react';
 import Link from 'next/link';
@@ -22,7 +21,7 @@ export default function FeaturesPage() {
             <Link href="/features" className="text-primary hover:text-primary/80 transition-colors">Features</Link>
             <a href="/#how-it-works" className="text-gray-400 hover:text-primary transition-colors">Research Process</a>
             <a href="/#pricing" className="text-gray-400 hover:text-primary transition-colors">Resources</a>
-            <a href="/#contact" className="text-gray-400 hover:text-primary transition-colors">Contact</a>
+            <a href="#contact" className="text-gray-400 hover:text-primary transition-colors">Contact</a>
         </nav>
         <Link href="/signup" passHref>
           <Button variant="outline" className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
