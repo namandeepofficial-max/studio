@@ -45,11 +45,13 @@ export default function FeaturesPage() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
-            <FeatureDetailCard
-                icon={<Scale />}
-                title="Refine"
-                description="Our platform helps you refine your research work for accuracy and clarity. AI-powered checks ensure your document structure is sound and your sections are in the correct academic sequence, eliminating common errors before they happen."
-            />
+            <Link href="/features/refine">
+                <FeatureDetailCard
+                    icon={<Scale />}
+                    title="Refine"
+                    description="Our platform helps you refine your research work for accuracy and clarity. AI-powered checks ensure your document structure is sound and your sections are in the correct academic sequence, eliminating common errors before they happen."
+                />
+            </Link>
             <FeatureDetailCard
                 icon={<Zap />}
                 title="Optimize"
@@ -82,7 +84,7 @@ export default function FeaturesPage() {
 }
 
 const FeatureDetailCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
-  <Card className="bg-gray-800/50 border-gray-700 text-center hover:border-primary transition-colors duration-300 transform hover:-translate-y-2 flex flex-col">
+  <Card className="bg-gray-800/50 border-gray-700 text-center hover:border-primary transition-colors duration-300 transform hover:-translate-y-2 flex flex-col h-full">
     <CardHeader>
       <div className="mx-auto bg-primary/10 text-primary w-20 h-20 rounded-full flex items-center justify-center mb-4">
         {React.cloneElement(icon as React.ReactElement, { className: "w-10 h-10" })}
@@ -94,5 +96,3 @@ const FeatureDetailCard = ({ icon, title, description }: { icon: React.ReactNode
     </CardContent>
   </Card>
 );
-
-    
