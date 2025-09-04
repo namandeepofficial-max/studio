@@ -3,8 +3,7 @@ import * as React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { ArrowLeft, ArrowRight, Twitter, Linkedin, Facebook, GraduationCap, Scale, Zap, Sparkles, Edit, BarChart2, Beaker, Quote, Lightbulb, SearchCheck } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Twitter, Linkedin, Facebook, GraduationCap, Scale, Zap, Sparkles } from 'lucide-react';
 
 export default function FeaturesPage() {
   return (
@@ -37,43 +36,32 @@ export default function FeaturesPage() {
                 Back to Home
             </Link>
           <h2 className="text-5xl font-extrabold mb-4">
-            Features
+            Our Features
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Discover how EVIDECIA FLOW empowers your research with powerful, AI-driven tools.
+            Discover how EVIDECIA FLOW empowers your research with powerful, AI-driven tools designed for every stage of your project.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-            <Accordion type="single" collapsible className="w-full space-y-4">
-                <FeatureAccordionItem
-                    value="refine"
-                    title="Refine"
-                    icon={<Scale />}
-                    tools={[
-                        { icon: <Edit />, title: 'Paper Polisher', description: 'AI automatically rewrites your paper abstract in the style of specific journal reviewers or grant evaluators.' },
-                        { icon: <BarChart2 />, title: 'Figure Designer', description: 'Drag-and-drop research plots and automatically standardize fonts, colors, and labels to match journal guidelines in seconds.' }
-                    ]}
-                />
-                <FeatureAccordionItem
-                    value="optimize"
-                    title="Optimize"
-                    icon={<Zap />}
-                    tools={[
-                        { icon: <Beaker />, title: 'AI Lab Coach', description: 'For lab experiments: enter your protocol and the tool cross-references public repositories to suggest small tweaks that reduce cost or time.' },
-                        { icon: <Quote />, title: 'Citations in Context', description: 'Instead of just giving a list of references, it shows how each paper you cite actually phrases the key point, so you don’t accidentally misquote.' }
-                    ]}
-                />
-                <FeatureAccordionItem
-                    value="innovate"
-                    title="Innovate"
-                    icon={<Sparkles />}
-                    tools={[
-                        { icon: <Lightbulb />, title: 'Idea Re-Combinator', description: 'Pulls random methods from unrelated fields and suggests weird but plausible combinations you’d never think of.' },
-                        { icon: <SearchCheck />, title: 'Claim Checker', description: 'Analyzes two or more papers to flag conflicting conclusions on the same topic, then summarizes the disagreement.' }
-                    ]}
-                />
-            </Accordion>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            <FeatureCategoryCard
+                icon={<Scale />}
+                title="Refine"
+                description="Enhance the accuracy and clarity of your research with specialized refinement tools."
+                link="/features/refine"
+            />
+            <FeatureCategoryCard
+                icon={<Zap />}
+                title="Optimize"
+                description="Streamline your workflow and boost productivity with intelligent optimization features."
+                link="/features/optimize"
+            />
+            <FeatureCategoryCard
+                icon={<Sparkles />}
+                title="Innovate"
+                description="Spark creativity and discover new insights with our cutting-edge innovation toolkit."
+                link="/features/innovate"
+            />
         </div>
       </main>
 
@@ -95,41 +83,24 @@ export default function FeaturesPage() {
   );
 }
 
-const FeatureAccordionItem = ({ value, title, icon, tools }: { value: string, title: string, icon: React.ReactNode, tools: { icon: React.ReactNode, title: string, description: string }[] }) => (
-    <AccordionItem value={value} className="bg-gray-800/50 border-gray-700 rounded-xl">
-        <AccordionTrigger className="p-6 text-2xl font-bold hover:no-underline">
-            <div className="flex items-center gap-4">
-                <div className="bg-primary/10 text-primary w-12 h-12 rounded-full flex items-center justify-center">
-                    {React.cloneElement(icon as React.ReactElement, { className: "w-6 h-6" })}
-                </div>
-                {title}
-            </div>
-        </AccordionTrigger>
-        <AccordionContent className="p-6 pt-0">
-            <div className="grid md:grid-cols-2 gap-8 mt-4">
-                {tools.map((tool, index) => (
-                    <ToolCard key={index} icon={tool.icon} title={tool.title} description={tool.description} />
-                ))}
-            </div>
-        </AccordionContent>
-    </AccordionItem>
-);
 
-const ToolCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
-  <Card className="bg-gray-800 border-gray-700 text-center hover:border-primary transition-colors duration-300 transform hover:-translate-y-1 flex flex-col">
-    <CardHeader>
-      <div className="mx-auto bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
-        {React.cloneElement(icon as React.ReactElement, { className: "w-8 h-8" })}
-      </div>
-      <CardTitle className="text-xl font-bold">{title}</CardTitle>
-    </CardHeader>
-    <CardContent className="flex-grow">
-      <p className="text-gray-400 text-base leading-relaxed">{description}</p>
-    </CardContent>
-    <CardFooter>
-        <Button variant="outline" className="w-full bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
-            Try It
-        </Button>
-    </CardFooter>
-  </Card>
+const FeatureCategoryCard = ({ icon, title, description, link }: { icon: React.ReactNode, title: string, description: string, link: string }) => (
+    <Card className="bg-gray-800/50 border-gray-700 text-center hover:border-primary transition-colors duration-300 transform hover:-translate-y-2 flex flex-col">
+        <CardHeader>
+            <div className="mx-auto bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                {React.cloneElement(icon as React.ReactElement, { className: "w-8 h-8" })}
+            </div>
+            <CardTitle className="text-2xl font-bold">{title}</CardTitle>
+        </CardHeader>
+        <CardContent className="flex-grow">
+            <p className="text-gray-400">{description}</p>
+        </CardContent>
+        <CardFooter>
+            <Link href={link} passHref className="w-full">
+                <Button variant="outline" className="w-full bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
+                    Explore <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+            </Link>
+        </CardFooter>
+    </Card>
 );
