@@ -38,7 +38,7 @@ export default function OptimizeFeaturePage() {
         <div className="grid lg:grid-cols-2 gap-8">
           <ToolCard
             icon={<Beaker />}
-            title="AI Lab Coach - Protocol Optimizer"
+            title="AI Lab Coach"
             description="For lab experiments: enter your protocol and the tool cross-references public repositories to suggest small tweaks that reduce cost or time."
           />
           <ToolCard
@@ -73,7 +73,7 @@ const ToolCard = ({ icon, title, description }: { icon: React.ReactNode, title: 
     </CardContent>
     <CardFooter>
         <Button variant="outline" className="w-full bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
-            Learn More
+            Try It
         </Button>
     </CardFooter>
   </Card>
