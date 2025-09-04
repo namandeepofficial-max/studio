@@ -154,7 +154,7 @@ export default function Home() {
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
                   <Mail className="w-6 h-6 text-primary" />
-                  <span>support@researchhub.com</span>
+                  <span>evideciaflow@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-4">
                   <Phone className="w-6 h-6 text-primary" />
@@ -271,4 +271,5 @@ const HowItWorksStep = ({ step, title, description, icon, align }: { step: strin
     
 
     
+
 
