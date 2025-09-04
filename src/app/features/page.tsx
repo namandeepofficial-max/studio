@@ -59,11 +59,13 @@ export default function FeaturesPage() {
                   description="Streamline your workflow with tools that optimize productivity. Automatically extract document sections, download individual parts for focused editing, and navigate complex papers with ease. Spend less time formatting and more time researching."
               />
             </Link>
-            <FeatureDetailCard
-                icon={<Sparkles />}
-                title="Innovate"
-                description="Foster innovation with cutting-edge AI support. Our Genkit-powered tools not only analyze but also provide insights, helping you to identify structural gaps and improve the overall flow of your work, pushing the boundaries of your research."
-            />
+            <Link href="/features/innovate">
+                <FeatureDetailCard
+                    icon={<Sparkles />}
+                    title="Innovate"
+                    description="Foster innovation with cutting-edge AI support. Our Genkit-powered tools not only analyze but also provide insights, helping you to identify structural gaps and improve the overall flow of your work, pushing the boundaries of your research."
+                />
+            </Link>
         </div>
       </main>
 
