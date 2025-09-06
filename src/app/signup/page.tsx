@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
-import { ArrowLeft, GraduationCap } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 import Link from 'next/link';
 
 function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -47,9 +47,9 @@ export default function SignUpPage() {
                 <GraduationCap className="h-8 w-8 text-primary" />
                 <span>EVIDECIA FLOW</span>
             </Link>
-          <CardTitle className="text-3xl font-bold">Create Your Account</CardTitle>
+          <CardTitle className="text-3xl font-bold">Get Started</CardTitle>
           <CardDescription className="text-md text-gray-400">
-            Join to streamline your research workflow.
+            Create an account to start analyzing your research papers.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
@@ -58,21 +58,19 @@ export default function SignUpPage() {
               <GoogleIcon className="mr-2 h-5 w-5" />
               Sign up with Gmail
             </Button>
+             <Input 
+                type="tel" 
+                placeholder="Phone Number" 
+                className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400"
+            />
+             <Button className="w-full bg-primary hover:bg-primary/90">
+              Sign Up with Phone
+            </Button>
           </div>
           <div className="flex items-center gap-4">
             <Separator className="flex-1 bg-gray-700" />
             <span className="text-xs text-gray-500">OR</span>
             <Separator className="flex-1 bg-gray-700" />
-          </div>
-          <div className="space-y-4">
-            <Input 
-                type="tel" 
-                placeholder="Phone Number" 
-                className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400"
-            />
-            <Button className="w-full bg-primary hover:bg-primary/90">
-              Send OTP
-            </Button>
           </div>
           <div className="text-center text-sm text-gray-400">
             Already have an account?{' '}
