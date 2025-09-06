@@ -154,7 +154,7 @@ export default function SignUpPage() {
                         <form onSubmit={handlePhoneSignUp} className="space-y-4">
                             <Input 
                                 type="tel" 
-                                placeholder="Phone Number (e.g., 11234567890)" 
+                                placeholder="Phone Number (e.g. +11234567890)" 
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
                                 className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400"

@@ -76,7 +76,7 @@ const ToolCard = ({ icon, title, description }: { icon: React.ReactNode, title: 
     </CardContent>
     <CardFooter>
         <Button variant="outline" className="w-full bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
-            Try Now
+            Try It
         </Button>
     </CardFooter>
   </Card>
