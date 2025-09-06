@@ -4,9 +4,12 @@ import * as React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Separator } from '@/components/ui/separator';
-import { GraduationCap } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { GraduationCap, Mail, Phone } from 'lucide-react';
 import Link from 'next/link';
+import { auth } from '@/lib/firebase';
+import { RecaptchaVerifier, signInWithPhoneNumber, ConfirmationResult, createUserWithEmailAndPassword } from 'firebase/auth';
+import { useToast } from '@/hooks/use-toast';
 
 function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
     return (
@@ -35,10 +38,73 @@ function GoogleIcon(props: React.SVGProps<SVGSVGElement>) {
         />
       </svg>
     );
-  }
+}
   
 
 export default function SignUpPage() {
+    const { toast } = useToast();
+    const [email, setEmail] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [phone, setPhone] = React.useState('');
+    const [otp, setOtp] = React.useState('');
+    const [confirmationResult, setConfirmationResult] = React.useState<ConfirmationResult | null>(null);
+    const [loading, setLoading] = React.useState(false);
+    
+    // Helper to set up reCAPTCHA
+    const setupRecaptcha = () => {
+        if (!auth) return;
+        if ('recaptchaVerifier' in window) {
+            (window as any).recaptchaVerifier.clear();
+        }
+        (window as any).recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+            'size': 'invisible',
+            'callback': (response: any) => {
+              // reCAPTCHA solved, allow signInWithPhoneNumber.
+            }
+          });
+    };
+
+    const handleEmailSignUp = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+            toast({ title: "Success", description: "Account created successfully with email." });
+        } catch (error: any) {
+            toast({ variant: "destructive", title: "Error", description: error.message });
+        }
+        setLoading(false);
+    };
+
+    const handlePhoneSignUp = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setLoading(true);
+        setupRecaptcha();
+        const appVerifier = (window as any).recaptchaVerifier;
+        try {
+            const result = await signInWithPhoneNumber(auth, `+${phone}`, appVerifier);
+            setConfirmationResult(result);
+            toast({ title: "OTP Sent", description: "An OTP has been sent to your phone number." });
+        } catch (error: any) {
+            toast({ variant: "destructive", title: "Error", description: error.message });
+        }
+        setLoading(false);
+    };
+
+    const handleVerifyOtp = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!confirmationResult) return;
+        setLoading(true);
+        try {
+            await confirmationResult.confirm(otp);
+            toast({ title: "Success", description: "Phone number verified successfully." });
+        } catch (error: any) {
+            toast({ variant: "destructive", title: "Error", description: error.message });
+        }
+        setLoading(false);
+    };
+
+
   return (
     <div className="flex min-h-screen w-full items-center justify-center bg-gray-900 p-4">
       <Card className="w-full max-w-md bg-gray-900/50 text-white border-gray-700 shadow-2xl shadow-primary/20">
@@ -53,25 +119,67 @@ export default function SignUpPage() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          <div className="space-y-4">
-            <Button variant="outline" className="w-full bg-white text-black hover:bg-gray-200">
-              <GoogleIcon className="mr-2 h-5 w-5" />
-              Sign up with Gmail
-            </Button>
-             <Input 
-                type="tel" 
-                placeholder="Phone Number" 
-                className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400"
-            />
-             <Button className="w-full bg-primary hover:bg-primary/90">
-              Sign Up with Phone
-            </Button>
-          </div>
-          <div className="flex items-center gap-4">
-            <Separator className="flex-1 bg-gray-700" />
-            <span className="text-xs text-gray-500">OR</span>
-            <Separator className="flex-1 bg-gray-700" />
-          </div>
+            <Tabs defaultValue="email" className="w-full">
+                <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="email"><Mail className="mr-2 h-4 w-4" />Email</TabsTrigger>
+                    <TabsTrigger value="phone"><Phone className="mr-2 h-4 w-4" />Phone</TabsTrigger>
+                </TabsList>
+                <TabsContent value="email" className="space-y-4 pt-4">
+                    <form onSubmit={handleEmailSignUp} className="space-y-4">
+                        <Input 
+                            type="email" 
+                            placeholder="Email Address" 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400"
+                        />
+                        <Input 
+                            type="password" 
+                            placeholder="Password" 
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400"
+                        />
+                        <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={loading}>
+                            {loading ? 'Signing up...' : 'Sign Up with Email'}
+                        </Button>
+                    </form>
+                    <Button variant="outline" className="w-full bg-white text-black hover:bg-gray-200">
+                        <GoogleIcon className="mr-2 h-5 w-5" />
+                        Sign up with Gmail
+                    </Button>
+                </TabsContent>
+                <TabsContent value="phone" className="space-y-4 pt-4">
+                    {!confirmationResult ? (
+                        <form onSubmit={handlePhoneSignUp} className="space-y-4">
+                            <Input 
+                                type="tel" 
+                                placeholder="Phone Number (e.g., 11234567890)" 
+                                value={phone}
+                                onChange={(e) => setPhone(e.target.value)}
+                                className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400"
+                            />
+                            <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={loading}>
+                                {loading ? 'Sending OTP...' : 'Send OTP'}
+                            </Button>
+                        </form>
+                    ) : (
+                        <form onSubmit={handleVerifyOtp} className="space-y-4">
+                            <Input 
+                                type="text" 
+                                placeholder="Enter OTP"
+                                value={otp}
+                                onChange={(e) => setOtp(e.target.value)}
+                                className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400"
+                            />
+                            <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={loading}>
+                                {loading ? 'Verifying...' : 'Verify OTP'}
+                            </Button>
+                        </form>
+                    )}
+                </TabsContent>
+            </Tabs>
+          <div id="recaptcha-container"></div>
           <div className="text-center text-sm text-gray-400">
             Already have an account?{' '}
             <Link href="#" className="font-semibold text-primary hover:underline">
