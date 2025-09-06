@@ -387,3 +387,4 @@ const StatCard = ({ number, label }: { number: string, label: string }) => (
   </div>
 );
     
+
