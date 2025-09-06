@@ -2,7 +2,7 @@
 "use client";
 import * as React from 'react';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter, CardDescription } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -19,6 +19,7 @@ const planDetails: { [key: string]: { name: string; price: string } } = {
 
 export default function PaymentPage() {
     const searchParams = useSearchParams();
+    const router = useRouter();
     const planName = searchParams.get('plan') || 'Pro';
     const selectedPlan = planDetails[planName];
     const { toast } = useToast();
@@ -30,6 +31,10 @@ export default function PaymentPage() {
             title: "Payment Successful!",
             description: `You have successfully subscribed to the ${selectedPlan.name} plan.`,
         });
+        // Redirect to home page after a short delay
+        setTimeout(() => {
+            router.push('/');
+        }, 2000);
     }
 
     return (

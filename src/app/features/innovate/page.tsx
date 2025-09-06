@@ -6,8 +6,16 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 import { ArrowLeft, Lightbulb, SearchCheck, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { Header } from '@/components/header';
+import { DocumentAnalyzer } from '@/components/document-analyzer';
+import { useState } from 'react';
 
 export default function InnovatePage() {
+    const [showAnalyzer, setShowAnalyzer] = useState(false);
+
+    if (showAnalyzer) {
+        return <DocumentAnalyzer />;
+    }
+
   return (
     <div className="bg-gray-900 text-white font-body min-h-screen">
       <Header />
@@ -30,12 +38,14 @@ export default function InnovatePage() {
             <ToolCard 
                 icon={<Lightbulb />} 
                 title="Idea Re-Combinator" 
-                description="Pulls random methods from unrelated fields and suggests weird but plausible combinations you’d never think of." 
+                description="Pulls random methods from unrelated fields and suggests weird but plausible combinations you’d never think of."
+                onTryIt={() => setShowAnalyzer(true)}
             />
             <ToolCard 
                 icon={<SearchCheck />} 
                 title="Claim Checker" 
-                description="Analyzes two or more papers to flag conflicting conclusions on the same topic, then summarizes the disagreement." 
+                description="Analyzes two or more papers to flag conflicting conclusions on the same topic, then summarizes the disagreement."
+                onTryIt={() => setShowAnalyzer(true)}
             />
         </div>
       </main>
@@ -63,7 +73,7 @@ export default function InnovatePage() {
   );
 }
 
-const ToolCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => (
+const ToolCard = ({ icon, title, description, onTryIt }: { icon: React.ReactNode, title: string, description: string, onTryIt: () => void }) => (
   <Card className="bg-gray-800 border-gray-700 text-center hover:border-primary transition-colors duration-300 transform hover:-translate-y-1 flex flex-col">
     <CardHeader>
       <div className="mx-auto bg-primary/10 text-primary w-16 h-16 rounded-full flex items-center justify-center mb-4">
@@ -75,7 +85,7 @@ const ToolCard = ({ icon, title, description }: { icon: React.ReactNode, title: 
       <p className="text-gray-400 text-base leading-relaxed">{description}</p>
     </CardContent>
     <CardFooter>
-        <Button variant="outline" className="w-full bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
+        <Button variant="outline" className="w-full bg-transparent border-primary text-primary hover:bg-primary hover:text-white" onClick={onTryIt}>
             Try It
         </Button>
     </CardFooter>

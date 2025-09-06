@@ -22,7 +22,7 @@ export default function Home() {
   
   return (
     <div className="bg-gray-900 text-white font-body">
-      <Header />
+      <Header onAnalyzeClick={() => setShowAnalyzer(true)} />
 
       {/* Hero Section */}
       <main className="container mx-auto px-6 text-center pt-24 pb-16">
