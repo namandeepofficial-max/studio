@@ -61,12 +61,12 @@ export default function Home() {
 
         <div className="mt-12 w-full max-w-4xl mx-auto">
           <Image
-            src="https://picsum.photos/1200/600"
-            alt="Dashboard preview of the Evidecia Flow application showing analytics."
+            src="https://picsum.photos/1200/601"
+            alt="Architectural view of a building's courtyard from below."
             width={1200}
-            height={600}
+            height={601}
             className="rounded-xl shadow-2xl shadow-primary/20"
-            data-ai-hint="dashboard analytics"
+            data-ai-hint="architecture building"
           />
         </div>
       </main>
@@ -387,5 +387,6 @@ const StatCard = ({ number, label }: { number: string, label: string }) => (
   </div>
 );
     
+
 
 
