@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { GraduationCap, ArrowRight, Menu } from 'lucide-react';
+import { GraduationCap, ArrowRight, Menu, Sparkles, Workflow, Tag, Mail } from 'lucide-react';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
@@ -10,10 +10,10 @@ export function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { href: "/features", label: "Features" },
-    { href: "/#how-it-works", label: "How It Works" },
-    { href: "/#pricing", label: "Pricing" },
-    { href: "/#contact", label: "Contact" },
+    { href: "/features", label: "Features", icon: <Sparkles className="h-4 w-4" /> },
+    { href: "/#how-it-works", label: "How It Works", icon: <Workflow className="h-4 w-4" /> },
+    { href: "/#pricing", label: "Pricing", icon: <Tag className="h-4 w-4" /> },
+    { href: "/#contact", label: "Contact", icon: <Mail className="h-4 w-4" /> },
   ];
 
   return (
@@ -26,10 +26,15 @@ export function Header() {
       </Link>
       
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center gap-8">
+      <nav className="hidden md:flex items-center gap-2 bg-gray-800/50 p-1 rounded-full border border-gray-700 shadow-inner">
         {navLinks.map((link) => (
-          <Link key={link.href} href={link.href} className="text-gray-300 hover:text-primary transition-colors text-sm font-medium tracking-wide">
-            {link.label}
+          <Link 
+            key={link.href} 
+            href={link.href} 
+            className="flex items-center gap-2 text-gray-300 hover:text-white hover:bg-gray-700/50 transition-colors text-sm font-medium tracking-wide px-4 py-2 rounded-full"
+          >
+            {link.icon}
+            <span>{link.label}</span>
           </Link>
         ))}
       </nav>
@@ -59,10 +64,11 @@ export function Header() {
                     EVIDECIA FLOW
                     </h1>
                 </Link>
-                <nav className="flex flex-col gap-6 text-lg">
+                <nav className="flex flex-col gap-4 text-lg">
                     {navLinks.map((link) => (
-                    <Link key={link.href} href={link.href} className="text-gray-300 hover:text-primary transition-colors" onClick={() => setMenuOpen(false)}>
-                        {link.label}
+                    <Link key={link.href} href={link.href} className="flex items-center gap-3 text-gray-300 hover:text-primary transition-colors p-2 rounded-lg hover:bg-gray-800" onClick={() => setMenuOpen(false)}>
+                        {link.icon}
+                        <span>{link.label}</span>
                     </Link>
                     ))}
                 </nav>
