@@ -24,6 +24,13 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '20mb',
+    },
+    serverMinification: false,
+    serverComponentsExternalPackages: ['sharp', 'onnxruntime-node'],
+  },
 };
 
 export default nextConfig;

@@ -8,16 +8,42 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Instagram, Mail, Phone, Library, Star } from 'lucide-react';
+import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Instagram, Mail, Phone, Library, Star, Loader2 } from 'lucide-react';
 import { DocumentAnalyzer } from '@/components/document-analyzer';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Header } from '@/components/header';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay";
+import { generateVideo } from '@/ai/flows/generate-video-flow';
+import { useToast } from '@/hooks/use-toast';
 
 
 export default function Home() {
   const [showAnalyzer, setShowAnalyzer] = useState(false);
+  const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [isVideoLoading, setIsVideoLoading] = useState(true);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const fetchVideo = async () => {
+      try {
+        const result = await generateVideo({ prompt: 'A cinematic shot of an old car driving down a deserted road at sunset.' });
+        setVideoUrl(result.videoDataUri);
+      } catch (error) {
+        console.error('Failed to generate video:', error);
+        toast({
+            variant: 'destructive',
+            title: 'Video Generation Failed',
+            description: 'Could not generate the hero video. Please try refreshing the page.',
+        });
+      } finally {
+        setIsVideoLoading(false);
+      }
+    };
+    fetchVideo();
+  }, [toast]);
+
+
   const [contactForm, setContactForm] = useState({
     name: '',
     email: '',
@@ -59,15 +85,31 @@ export default function Home() {
           Analyze Document Now <ArrowRight className="ml-2" />
         </Button>
 
-        <div className="mt-12 w-full max-w-4xl mx-auto">
-          <Image
+        <div className="mt-12 w-full max-w-4xl mx-auto aspect-video rounded-xl shadow-2xl shadow-primary/20 bg-gray-800 flex items-center justify-center">
+        {isVideoLoading ? (
+            <div className="flex flex-col items-center gap-4 text-gray-400">
+                <Loader2 className="h-12 w-12 animate-spin text-primary" />
+                <p>Generating hero video...</p>
+            </div>
+        ) : videoUrl ? (
+            <video
+                src={videoUrl}
+                className="rounded-xl w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+            />
+        ) : (
+            <Image
             src="https://picsum.photos/1200/601"
             alt="Architectural view of a building's courtyard from below."
             width={1200}
             height={601}
-            className="rounded-xl shadow-2xl shadow-primary/20"
+            className="rounded-xl"
             data-ai-hint="architecture building"
           />
+        )}
         </div>
       </main>
 
@@ -387,6 +429,7 @@ const StatCard = ({ number, label }: { number: string, label: string }) => (
   </div>
 );
     
+
 
 
 

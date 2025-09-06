@@ -3,3 +3,4 @@ config();
 
 import '@/ai/flows/check-section-sequence.ts';
 import '@/ai/flows/extract-document-structure.ts';
+import '@/ai/flows/generate-video-flow.ts';
