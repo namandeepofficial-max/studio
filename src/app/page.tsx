@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Facebook, Mail, Phone, MapPin, Library } from 'lucide-react';
+import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, Library } from 'lucide-react';
 import { DocumentAnalyzer } from '@/components/document-analyzer';
 import { useState } from 'react';
 import { Header } from '@/components/header';
@@ -196,15 +196,20 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-12 border-t border-gray-800">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-          <div>
+        <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
+          <div className="md:col-span-1">
             <h4 className="text-xl font-bold">EVIDECIA FLOW</h4>
             <p className="text-gray-500">© 2024 All rights reserved.</p>
           </div>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-primary"><Twitter /></a>
-            <a href="#" className="text-gray-400 hover:text-primary"><Linkedin /></a>
-            <a href="#" className="text-gray-400 hover:text-primary"><Facebook /></a>
+          <div className="md:col-span-2 flex flex-col md:flex-row justify-end items-center gap-8">
+              <div>
+                <h4 className="text-lg font-semibold mb-2">Follow Us</h4>
+                <div className="flex space-x-4 justify-center md:justify-start">
+                  <a href="#" className="text-gray-400 hover:text-primary hover:scale-110 transition-transform"><Twitter /></a>
+                  <a href="#" className="text-gray-400 hover:text-primary hover:scale-110 transition-transform"><Linkedin /></a>
+                  <a href="#" className="text-gray-400 hover:text-primary hover:scale-110 transition-transform"><Instagram /></a>
+                </div>
+              </div>
           </div>
         </div>
       </footer>

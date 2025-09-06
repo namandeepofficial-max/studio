@@ -1,9 +1,10 @@
+
 "use client";
 import * as React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { ArrowLeft, Beaker, Quote, Twitter, Linkedin, Facebook } from 'lucide-react';
+import { ArrowLeft, Beaker, Quote, Twitter, Linkedin, Instagram } from 'lucide-react';
 import { Header } from '@/components/header';
 
 export default function OptimizePage() {
@@ -41,15 +42,20 @@ export default function OptimizePage() {
 
       {/* Footer */}
       <footer className="mt-16 py-12 border-t border-gray-800">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-          <div>
+        <div className="container mx-auto px-6 grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
+          <div className="md:col-span-1">
             <h4 className="text-xl font-bold">EVIDECIA FLOW</h4>
             <p className="text-gray-500">© 2024 All rights reserved.</p>
           </div>
-          <div className="flex space-x-4 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-primary"><Twitter /></a>
-            <a href="#" className="text-gray-400 hover:text-primary"><Linkedin /></a>
-            <a href="#" className="text-gray-400 hover:text-primary"><Facebook /></a>
+          <div className="md:col-span-2 flex flex-col md:flex-row justify-end items-center gap-8">
+              <div>
+                <h4 className="text-lg font-semibold mb-2">Follow Us</h4>
+                <div className="flex space-x-4 justify-center md:justify-start">
+                  <a href="#" className="text-gray-400 hover:text-primary hover:scale-110 transition-transform"><Twitter /></a>
+                  <a href="#" className="text-gray-400 hover:text-primary hover:scale-110 transition-transform"><Linkedin /></a>
+                  <a href="#" className="text-gray-400 hover:text-primary hover:scale-110 transition-transform"><Instagram /></a>
+                </div>
+              </div>
           </div>
         </div>
       </footer>
