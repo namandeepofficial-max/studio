@@ -34,7 +34,7 @@ export default function Home() {
         toast({
             variant: 'destructive',
             title: 'Video Generation Failed',
-            description: 'Could not generate the hero video. Please try refreshing the page.',
+            description: 'Could not generate the hero video. Displaying a fallback image.',
         });
       } finally {
         setIsVideoLoading(false);
@@ -429,6 +429,7 @@ const StatCard = ({ number, label }: { number: string, label: string }) => (
   </div>
 );
     
+
 
 
 
