@@ -381,10 +381,11 @@ const TestimonialCard = ({ image, quote, rating, name, designation }: { image: s
 );
 
 const StatCard = ({ number, label }: { number: string, label: string }) => (
-  <div className="bg-white text-gray-900 p-6 rounded-lg shadow-md text-center transition-transform transform hover:scale-105 hover:shadow-xl">
-    <p className="text-4xl font-bold text-blue-600">{number}</p>
-    <p className="text-sm text-gray-600 mt-2">{label}</p>
+  <div className="bg-gray-800/50 border border-gray-700 p-6 rounded-lg text-center transition-transform transform hover:scale-105 hover:border-primary">
+    <p className="text-4xl font-bold text-primary">{number}</p>
+    <p className="text-sm text-gray-400 mt-2">{label}</p>
   </div>
 );
     
+
 
