@@ -3,31 +3,13 @@ import * as React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { ArrowLeft, ArrowRight, Twitter, Linkedin, Facebook, GraduationCap, Scale, Zap, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Twitter, Linkedin, Facebook, Scale, Zap, Sparkles } from 'lucide-react';
+import { Header } from '@/components/header';
 
 export default function FeaturesPage() {
   return (
     <div className="bg-gray-900 text-white font-body min-h-screen">
-      {/* Header */}
-      <header className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2">
-          <GraduationCap className="h-8 w-8 text-primary" />
-          <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
-            EVIDECIA FLOW
-          </h1>
-        </Link>
-        <nav className="hidden md:flex items-center gap-8">
-            <Link href="/features" className="text-primary hover:text-primary/80 transition-colors">Features</Link>
-            <a href="/#how-it-works" className="text-gray-400 hover:text-primary transition-colors">Research Process</a>
-            <a href="/#pricing" className="text-gray-400 hover:text-primary transition-colors">Resources</a>
-            <a href="#contact" className="text-gray-400 hover:text-primary transition-colors">Contact</a>
-        </nav>
-        <Link href="/signup" passHref>
-          <Button variant="outline" className="bg-transparent border-primary text-primary hover:bg-primary hover:text-white">
-            Get Started <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </Link>
-      </header>
+      <Header />
 
       <main className="container mx-auto px-6 py-16">
         <div className="text-center mb-16">
