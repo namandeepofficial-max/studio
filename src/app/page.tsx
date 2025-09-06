@@ -146,8 +146,20 @@ export default function Home() {
           </div>
       </section>
 
+      {/* Stats Section */}
+      <section id="stats" className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <StatCard number="1,250+" label="Research Papers" />
+            <StatCard number="500+" label="Active Researchers" />
+            <StatCard number="89%" label="Success Rate" />
+            <StatCard number="24/7" label="Support Available" />
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials Section */}
-        <section id="testimonials" className="py-20">
+        <section id="testimonials" className="py-20 bg-gray-900/50">
             <div className="container mx-auto px-6">
                 <h3 className="text-4xl font-bold text-center mb-12">What Our Users Say</h3>
                 <Carousel
@@ -368,4 +380,10 @@ const TestimonialCard = ({ image, quote, rating, name, designation }: { image: s
     </CarouselItem>
 );
 
+const StatCard = ({ number, label }: { number: string, label: string }) => (
+  <div className="bg-white text-gray-900 p-6 rounded-lg shadow-md text-center transition-transform transform hover:scale-105 hover:shadow-xl">
+    <p className="text-4xl font-bold text-blue-600">{number}</p>
+    <p className="text-sm text-gray-600 mt-2">{label}</p>
+  </div>
+);
     
