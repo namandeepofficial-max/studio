@@ -130,12 +130,14 @@ const PricingCard = ({ name, price, features, cta, featured }: { name: string, p
             </ul>
         </CardContent>
         <CardFooter className="p-6 mt-auto">
-            <Button size="lg" className={cn(
-                "w-full",
-                featured ? "bg-primary hover:bg-primary/90" : "bg-transparent border border-primary text-primary hover:bg-primary hover:text-white"
-            )}>
-                {cta}
-            </Button>
+            <Link href={`/payment?plan=${name}`} className="w-full">
+                <Button size="lg" className={cn(
+                    "w-full",
+                    featured ? "bg-primary hover:bg-primary/90" : "bg-transparent border border-primary text-primary hover:bg-primary hover:text-white"
+                )}>
+                    {cta}
+                </Button>
+            </Link>
         </CardFooter>
     </Card>
 );
