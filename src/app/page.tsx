@@ -8,10 +8,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Instagram, Mail, Phone, Library } from 'lucide-react';
+import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Instagram, Mail, Phone, Library, Star } from 'lucide-react';
 import { DocumentAnalyzer } from '@/components/document-analyzer';
 import { useState } from 'react';
 import { Header } from '@/components/header';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from "embla-carousel-autoplay";
+
 
 export default function Home() {
   const [showAnalyzer, setShowAnalyzer] = useState(false);
@@ -143,6 +146,66 @@ export default function Home() {
           </div>
       </section>
 
+      {/* Testimonials Section */}
+        <section id="testimonials" className="py-20">
+            <div className="container mx-auto px-6">
+                <h3 className="text-4xl font-bold text-center mb-12">What Our Users Say</h3>
+                <Carousel
+                    plugins={[
+                        Autoplay({
+                          delay: 5000,
+                          stopOnInteraction: true,
+                        }),
+                    ]}
+                    opts={{
+                        align: "start",
+                        loop: true,
+                    }}
+                    className="w-full max-w-6xl mx-auto"
+                >
+                    <CarouselContent>
+                        <TestimonialCard
+                            image="https://picsum.photos/100"
+                            quote="This tool transformed my thesis writing process. The structure analysis is incredibly accurate and saved me hours of manual checking."
+                            rating={5}
+                            name="Dr. Alex Johnson"
+                            designation="Senior Researcher"
+                        />
+                        <TestimonialCard
+                            image="https://picsum.photos/101"
+                            quote="EVIDECIA FLOW is a game-changer for academic writing. The sequence checker caught an error that my supervisor missed!"
+                            rating={5}
+                            name="Dr. Jane Smith"
+                            designation="Postdoctoral Researcher"
+                        />
+                        <TestimonialCard
+                            image="https://picsum.photos/102"
+                            quote="I highly recommend this platform to all my students. It simplifies the most tedious parts of paper formatting."
+                            rating={5}
+                            name="Professor Chen"
+                            designation="University of Science"
+                        />
+                         <TestimonialCard
+                            image="https://picsum.photos/103"
+                            quote="The best AI tool for researchers. The clean interface and powerful features make it an indispensable part of my workflow."
+                            rating={5}
+                            name="Dr. Emily Carter"
+                            designation="Medical Research Fellow"
+                        />
+                        <TestimonialCard
+                            image="https://picsum.photos/104"
+                            quote="Finally, a tool that understands the nuances of academic documents. The section download feature is brilliant for collaborative projects."
+                            rating={5}
+                            name="Dr. Michael Brown"
+                            designation="Ph.D. Candidate"
+                        />
+                    </CarouselContent>
+                    <CarouselPrevious />
+                    <CarouselNext />
+                </Carousel>
+            </div>
+        </section>
+
       {/* Contact Us Section */}
       <section id="contact" className="py-20 bg-gradient-to-r from-blue-900/80 via-purple-900/80 to-indigo-900/80">
         <div className="container mx-auto px-6">
@@ -272,3 +335,37 @@ const HowItWorksStep = ({ step, title, description, icon, align }: { step: strin
     <div className="md:w-5/12" />
   </div>
 );
+
+const TestimonialCard = ({ image, quote, rating, name, designation }: { image: string, quote: string, rating: number, name: string, designation: string }) => (
+    <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+        <Card className="h-full bg-gray-800/50 border-gray-700 shadow-lg flex flex-col justify-between text-center p-6 m-2">
+            <CardHeader className="p-0">
+                <Image
+                    src={image}
+                    alt={`Photo of ${name}`}
+                    width={80}
+                    height={80}
+                    className="rounded-full mx-auto mb-4 border-4 border-primary/50"
+                    data-ai-hint="profile photo"
+                />
+            </CardHeader>
+            <CardContent className="p-0 flex-grow flex flex-col justify-center">
+                <p className="text-gray-300 italic mb-4">"{quote}"</p>
+                <div className="flex justify-center mb-4">
+                    {[...Array(rating)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-yellow-400" />
+                    ))}
+                    {[...Array(5-rating)].map((_, i) => (
+                        <Star key={i+rating} className="h-5 w-5 text-gray-500" />
+                    ))}
+                </div>
+            </CardContent>
+            <CardFooter className="p-0 flex-col">
+                <p className="font-bold text-lg text-white">{name}</p>
+                <p className="text-sm text-gray-400">{designation}</p>
+            </CardFooter>
+        </Card>
+    </CarouselItem>
+);
+
+    
