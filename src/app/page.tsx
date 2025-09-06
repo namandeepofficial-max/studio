@@ -32,14 +32,18 @@ export default function Home() {
         <p className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto mb-8">
           Evidecia Flow uses AI to analyze document structures, check section sequences, and help you produce perfectly formatted academic papers, effortlessly.
         </p>
-        <Button onClick={() => setShowAnalyzer(true)} size="lg" className="bg-primary hover:bg-primary/90">
+        <Button 
+          onClick={() => setShowAnalyzer(true)} 
+          size="lg" 
+          className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/50 transform transition-transform hover:scale-105"
+        >
           Analyze Document Now <ArrowRight className="ml-2" />
         </Button>
 
         <div className="mt-12 w-full max-w-4xl mx-auto">
           <Image
             src="https://picsum.photos/1200/600"
-            alt="Dashboard preview"
+            alt="Dashboard preview of the Evidecia Flow application showing analytics."
             width={1200}
             height={600}
             className="rounded-xl shadow-2xl shadow-primary/20"
@@ -183,8 +187,8 @@ export default function Home() {
                     <label htmlFor="message" className="text-sm font-medium text-gray-300">Message</label>
                     <Textarea id="message" placeholder="Your message..." className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400" />
                   </div>
-                  <Button className="w-full bg-primary hover:bg-primary/90">
-                    Send Message
+                  <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                    <a href="mailto:evideciaflow@gmail.com">Send Message</a>
                   </Button>
                 </CardContent>
               </Card>
