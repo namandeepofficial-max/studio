@@ -8,13 +8,29 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Instagram, Mail, Phone, MapPin, Library } from 'lucide-react';
+import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Instagram, Mail, Phone, Library } from 'lucide-react';
 import { DocumentAnalyzer } from '@/components/document-analyzer';
 import { useState } from 'react';
 import { Header } from '@/components/header';
 
 export default function Home() {
   const [showAnalyzer, setShowAnalyzer] = useState(false);
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    interest: '',
+    message: '',
+  });
+
+  const handleInputChange = (field: string, value: string) => {
+    setContactForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSendMessage = () => {
+    const { name, email, interest, message } = contactForm;
+    const mailtoLink = `mailto:evideciaflow@gmail.com?subject=Inquiry from ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0AInterest: ${interest}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+    window.location.href = mailtoLink;
+  };
 
   if (showAnalyzer) {
     return <DocumentAnalyzer />;
@@ -147,7 +163,7 @@ export default function Home() {
                   <span>+1 (555) 123-4567</span>
                 </div>
                 <div className="flex items-center gap-4">
-                  <MapPin className="w-6 h-6 text-primary" />
+                  <Library className="w-6 h-6 text-primary" />
                   <span>123 Research Avenue, Academic City</span>
                 </div>
               </div>
@@ -162,15 +178,15 @@ export default function Home() {
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-gray-300">Name</label>
-                    <Input id="name" placeholder="Your Name" className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400" />
+                    <Input id="name" placeholder="Your Name" value={contactForm.name} onChange={(e) => handleInputChange('name', e.target.value)} className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="email" className="text-sm font-medium text-gray-300">Email</label>
-                    <Input id="email" type="email" placeholder="your.email@example.com" className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400" />
+                    <Input id="email" type="email" placeholder="your.email@example.com" value={contactForm.email} onChange={(e) => handleInputChange('email', e.target.value)} className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400" />
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="interest" className="text-sm font-medium text-gray-300">Research Interest</label>
-                    <Select>
+                    <Select onValueChange={(value) => handleInputChange('interest', value)} value={contactForm.interest}>
                       <SelectTrigger id="interest" className="bg-gray-800/50 border-gray-600 text-white">
                         <SelectValue placeholder="Select your interest" />
                       </SelectTrigger>
@@ -185,11 +201,9 @@ export default function Home() {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-medium text-gray-300">Message</label>
-                    <Textarea id="message" placeholder="Your message..." className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400" />
+                    <Textarea id="message" placeholder="Your message..." value={contactForm.message} onChange={(e) => handleInputChange('message', e.target.value)} className="bg-gray-800/50 border-gray-600 text-white placeholder:text-gray-400" />
                   </div>
-                  <Button asChild className="w-full bg-primary hover:bg-primary/90">
-                    <a href="mailto:evideciaflow@gmail.com">Send Message</a>
-                  </Button>
+                  <Button onClick={handleSendMessage} className="w-full bg-primary hover:bg-primary/90">Send Message</Button>
                 </CardContent>
               </Card>
             </div>
@@ -238,7 +252,7 @@ const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, titl
 const HowItWorksStep = ({ step, title, description, icon, align }: { step: string, title: string, description: string, icon: React.ReactNode, align: 'left' | 'right' }) => (
   <div className={`flex items-center w-full mb-8 md:mb-0 ${align === 'right' ? 'md:flex-row-reverse' : ''}`}>
     <div className="md:w-5/12">
-      <Card className="bg-gray-800 border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-primary/20 transition-shadow">
+      <Card className="bg-gray-800 border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-primary/20 transition-shadow duration-300 transform hover:-translate-y-1">
         <div className="flex items-center gap-4">
           <div className="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
             {step}
@@ -258,5 +272,3 @@ const HowItWorksStep = ({ step, title, description, icon, align }: { step: strin
     <div className="md:w-5/12" />
   </div>
 );
-
-    
