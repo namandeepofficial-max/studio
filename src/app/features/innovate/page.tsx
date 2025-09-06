@@ -18,7 +18,7 @@ export default function InnovatePage() {
 
   return (
     <div className="bg-gray-900 text-white font-body min-h-screen">
-      <Header />
+      <Header onAnalyzeClick={() => setShowAnalyzer(true)} />
 
       <main className="container mx-auto px-6 py-16">
         <div className="text-center mb-16">

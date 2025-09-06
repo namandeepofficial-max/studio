@@ -50,19 +50,18 @@ export default function SignUpPage() {
     const [confirmationResult, setConfirmationResult] = React.useState<ConfirmationResult | null>(null);
     const [loading, setLoading] = React.useState(false);
     
-    // Helper to set up reCAPTCHA
-    const setupRecaptcha = () => {
+    React.useEffect(() => {
         if (!auth) return;
-        if ('recaptchaVerifier' in window) {
-            (window as any).recaptchaVerifier.clear();
-        }
+        if ('recaptchaVerifier' in window) return;
+        
         (window as any).recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
             'size': 'invisible',
             'callback': (response: any) => {
               // reCAPTCHA solved, allow signInWithPhoneNumber.
             }
-          });
-    };
+        });
+    }, [auth]);
+
 
     const handleEmailSignUp = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -79,10 +78,9 @@ export default function SignUpPage() {
     const handlePhoneSignUp = async (e: React.FormEvent) => {
         e.preventDefault();
         setLoading(true);
-        setupRecaptcha();
         const appVerifier = (window as any).recaptchaVerifier;
         try {
-            const result = await signInWithPhoneNumber(auth, `+${phone}`, appVerifier);
+            const result = await signInWithPhoneNumber(auth, phone, appVerifier);
             setConfirmationResult(result);
             toast({ title: "OTP Sent", description: "An OTP has been sent to your phone number." });
         } catch (error: any) {
