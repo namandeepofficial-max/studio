@@ -83,7 +83,7 @@ export default function Home() {
           <h3 className="text-4xl font-bold text-center mb-12">Simple Steps to Perfection</h3>
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 h-full w-0.5 bg-gray-700 hidden md:block"></div>
+            <div className="absolute left-1/2 h-full w-0.5 bg-gray-700 hidden md:block" />
             
             <HowItWorksStep
               step="1"
@@ -229,9 +229,9 @@ const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, titl
 const HowItWorksStep = ({ step, title, description, icon, align }: { step: string, title: string, description: string, icon: React.ReactNode, align: 'left' | 'right' }) => (
   <div className={`flex items-center w-full mb-8 md:mb-0 ${align === 'right' ? 'md:flex-row-reverse' : ''}`}>
     <div className="md:w-5/12">
-      <Card className="bg-gray-800 border-gray-700 p-6">
+      <Card className="bg-gray-800 border-gray-700 p-6 rounded-xl shadow-lg hover:shadow-primary/20 transition-shadow">
         <div className="flex items-center gap-4">
-          <div className="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl">
+          <div className="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center font-bold text-xl flex-shrink-0">
             {step}
           </div>
           <div>
@@ -242,10 +242,10 @@ const HowItWorksStep = ({ step, title, description, icon, align }: { step: strin
       </Card>
     </div>
     <div className="hidden md:flex w-2/12 justify-center">
-      <div className="bg-primary/20 text-primary w-16 h-16 rounded-full flex items-center justify-center z-10">
+      <div className="bg-primary/20 text-primary w-16 h-16 rounded-full flex items-center justify-center z-10 ring-8 ring-gray-900">
         {React.cloneElement(icon as React.ReactElement, { className: "w-8 h-8" })}
       </div>
     </div>
-    <div className="md:w-5/12"></div>
+    <div className="md:w-5/12" />
   </div>
 );
