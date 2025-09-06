@@ -53,7 +53,7 @@ export default function OptimizePage() {
                 <div className="flex space-x-4 justify-center md:justify-start">
                   <a href="#" className="text-gray-400 hover:text-primary hover:scale-110 transition-transform"><Twitter /></a>
                   <a href="#" className="text-gray-400 hover:text-primary hover:scale-110 transition-transform"><Linkedin /></a>
-                  <a href="#" className="text-gray-400 hover:text-primary hover:scale-110 transition-transform"><Instagram /></a>
+                  <a href="https://www.instagram.com/evideciaflow?igsh=ODQyaW5sdng5bXFx" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary hover:scale-110 transition-transform"><Instagram /></a>
                 </div>
               </div>
           </div>
