@@ -32,7 +32,7 @@ export default function Home() {
 
   const handleSendMessage = () => {
     const { name, email, interest, message } = contactForm;
-    const mailtoLink = `mailto:evideciaflow@gmail.com?subject=Inquiry from ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0AInterest: ${interest}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+    const mailtoLink = `mailto:evideciaflow@gmail.com?subject=Inquiry from ${name}&body=Name: ${name}%0D%0AEmail: ${email}%0D%0AInterest: ${interest}%0D%0AMessage:%0D%0A${message}`;
     window.location.href = mailtoLink;
   };
 
@@ -57,7 +57,7 @@ export default function Home() {
           size="lg" 
           className="bg-primary hover:bg-primary/90 shadow-lg shadow-primary/50 transform transition-transform hover:scale-105"
         >
-          Analyze Document Now <ArrowRight className="ml-2" />
+          Analyze Document <ArrowRight className="ml-2" />
         </Button>
 
         <div className="mt-12 w-full max-w-4xl mx-auto aspect-video rounded-xl shadow-2xl shadow-primary/20 bg-gray-800 flex items-center justify-center">
@@ -395,5 +395,7 @@ const StatCard = ({ number, label }: { number: string, label: string }) => (
 
 
 
+
+    
 
     
