@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
+import { FloatingActionButton } from '@/components/floating-action-button';
 
 export const metadata: Metadata = {
   title: 'EVIDECIA FLOW',
@@ -22,8 +23,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-body antialiased h-full bg-background">
+      <body className="font-body antialiased h-full bg-background relative">
         {children}
+        <FloatingActionButton />
         <Toaster />
       </body>
     </html>
