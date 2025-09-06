@@ -8,7 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Facebook, Mail, Phone, MapPin } from 'lucide-react';
+import { FileText, Search, BrainCircuit, Download, CheckCircle, ArrowRight, Twitter, Linkedin, Facebook, Mail, Phone, MapPin, Library } from 'lucide-react';
 import { DocumentAnalyzer } from '@/components/document-analyzer';
 import { useState } from 'react';
 import { Header } from '@/components/header';
@@ -110,15 +110,15 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-gray-900/50">
+      {/* Resources Section */}
+      <section id="resources" className="py-20 bg-gray-900/50">
           <div className="container mx-auto px-6 text-center">
-              <h3 className="text-4xl font-bold mb-4">Free and Open Source</h3>
+              <h3 className="text-4xl font-bold mb-4">Explore Our Resources</h3>
               <p className="text-gray-400 max-w-2xl mx-auto mb-8">
-                  EVIDECIA FLOW is completely free to use. Our mission is to provide powerful academic tools to everyone, everywhere. Get started right away without any costs.
+                  Access our comprehensive guides, tutorials, and documentation to get the most out of EVIDECIA FLOW. Our resources are designed to help you succeed.
               </p>
-              <Button onClick={() => setShowAnalyzer(true)} size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-                Start Analyzing for Free
+              <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
+                Browse Resources <Library className="ml-2 h-4 w-4" />
               </Button>
           </div>
       </section>
@@ -249,3 +249,5 @@ const HowItWorksStep = ({ step, title, description, icon, align }: { step: strin
     <div className="md:w-5/12" />
   </div>
 );
+
+    

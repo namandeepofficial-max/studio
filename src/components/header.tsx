@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { GraduationCap, ArrowRight, Menu, Sparkles, Workflow, Tag, Mail } from 'lucide-react';
+import { GraduationCap, ArrowRight, Menu, Sparkles, Workflow, Library, Mail } from 'lucide-react';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
@@ -12,7 +12,7 @@ export function Header() {
   const navLinks = [
     { href: "/features", label: "Features", icon: <Sparkles className="h-4 w-4" /> },
     { href: "/#how-it-works", label: "How It Works", icon: <Workflow className="h-4 w-4" /> },
-    { href: "/#pricing", label: "Pricing", icon: <Tag className="h-4 w-4" /> },
+    { href: "/#resources", label: "Resources", icon: <Library className="h-4 w-4" /> },
     { href: "/#contact", label: "Contact", icon: <Mail className="h-4 w-4" /> },
   ];
 
@@ -86,3 +86,5 @@ export function Header() {
     </header>
   );
 }
+
+    
